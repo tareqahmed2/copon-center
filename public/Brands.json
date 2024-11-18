@@ -1,0 +1,158 @@
+[
+  {
+    "_id": "63e92f0c5e2b1b001a9d0131",
+    "brand_name": "TechWorld",
+    "rating": 4.5,
+    "description": "Leading provider of tech gadgets and accessories.",
+    "brand_logo": "https://i.ibb.co.com/HGsFZkb/techbrand.png",
+    "coupons": [
+      {
+        "coupon_code": "TECH20",
+        "description": "20% off on all electronics",
+        "expiry_date": "2024-12-31",
+        "condition": "Minimum purchase of $100",
+        "coupon_type": "Discount"
+      },
+      {
+        "coupon_code": "FREESHIP",
+        "description": "Free shipping on orders above $50",
+        "expiry_date": "2024-11-30",
+        "condition": "Applicable for all products",
+        "coupon_type": "Shipping"
+      }
+    ],
+    "shop_Link": "https://techworld.com",
+    "category": "Electronics",
+    "isSaleOn": true
+  },
+  {
+    "_id": "63e92f0c5e2b1b001a9d0132",
+    "brand_name": "FashionHub",
+    "rating": 4.0,
+    "description": "Trendy fashion apparel and accessories.",
+    "brand_logo": "https://i.ibb.co.com/z773mZy/fashion.jpg",
+    "coupons": [
+      {
+        "coupon_code": "STYLE15",
+        "description": "15% off on all clothing",
+        "expiry_date": "2024-11-25",
+        "condition": "Valid on selected items",
+        "coupon_type": "Discount"
+      },
+      {
+        "coupon_code": "NEWUSER10",
+        "description": "10% off for new users",
+        "expiry_date": "2024-12-15",
+        "condition": "First order only",
+        "coupon_type": "User Exclusive"
+      }
+    ],
+    "shop_Link": "https://fashionhub.com",
+    "category": "Fashion",
+    "isSaleOn": false
+  },
+  {
+    "_id": "63e92f0c5e2b1b001a9d0133",
+    "brand_name": "HomeEssentials",
+    "rating": 4.7,
+    "description": "Your one-stop shop for home essentials.",
+    "brand_logo": "https://i.ibb.co.com/4J9yPGp/home.jpg",
+    "coupons": [
+      {
+        "coupon_code": "HOME25",
+        "description": "25% off on kitchen appliances",
+        "expiry_date": "2024-12-10",
+        "condition": "Minimum purchase of $150",
+        "coupon_type": "Discount"
+      },
+      {
+        "coupon_code": "SAVE5",
+        "description": "$5 off on orders above $30",
+        "expiry_date": "2024-11-20",
+        "condition": "Applicable storewide",
+        "coupon_type": "Cashback"
+      }
+    ],
+    "shop_Link": "https://homeessentials.com",
+    "category": "Home & Kitchen",
+    "isSaleOn": true
+  },
+  {
+    "_id": "63e92f0c5e2b1b001a9d0134",
+    "brand_name": "HealthMart",
+    "rating": 4.3,
+    "description": "Health and wellness products at your fingertips.",
+    "brand_logo": "https://i.postimg.cc/hGw4drTD/health.png",
+    "coupons": [
+      {
+        "coupon_code": "HEALTH10",
+        "description": "10% off on supplements",
+        "expiry_date": "2025-01-05",
+        "condition": "No minimum order",
+        "coupon_type": "Discount"
+      },
+      {
+        "coupon_code": "BULKBUY",
+        "description": "5% off on bulk purchases",
+        "expiry_date": "2024-12-20",
+        "condition": "Purchase above 5 items",
+        "coupon_type": "Bulk Discount"
+      }
+    ],
+    "shop_Link": "https://healthmart.com",
+    "category": "Health & Wellness",
+    "isSaleOn": false
+  },
+  {
+    "_id": "63e92f0c5e2b1b001a9d0135",
+    "brand_name": "GourmetDelights",
+    "rating": 4.6,
+    "description": "Delicious gourmet food delivered to your door.",
+    "brand_logo": "https://i.postimg.cc/BbfqhnmR/gour.png",
+    "coupons": [
+      {
+        "coupon_code": "GOURMET30",
+        "description": "30% off on first order",
+        "expiry_date": "2024-11-30",
+        "condition": "New customers only",
+        "coupon_type": "New Customer"
+      },
+      {
+        "coupon_code": "SNACK5",
+        "description": "5% off on snacks",
+        "expiry_date": "2024-12-15",
+        "condition": "No minimum purchase",
+        "coupon_type": "Discount"
+      }
+    ],
+    "shop_Link": "https://gourmetdelights.com",
+    "category": "Food & Beverages",
+    "isSaleOn": true
+  },
+  {
+    "_id": "63e92f0c5e2b1b001a9d0136",
+    "brand_name": "TravelTime",
+    "rating": 4.8,
+    "description": "Best deals on flights, hotels, and travel packages.",
+    "brand_logo": "https://i.postimg.cc/Vv9z2PTv/tr.png",
+    "coupons": [
+      {
+        "coupon_code": "FLYHIGH",
+        "description": "15% off on all flights",
+        "expiry_date": "2024-12-31",
+        "condition": "Bookings over $500",
+        "coupon_type": "Travel"
+      },
+      {
+        "coupon_code": "HOTELDEAL",
+        "description": "10% off on hotel bookings",
+        "expiry_date": "2025-01-10",
+        "condition": "Applicable on selected hotels",
+        "coupon_type": "Accommodation"
+      }
+    ],
+    "shop_Link": "https://traveltime.com",
+    "category": "Travel",
+    "isSaleOn": true
+  }
+]
