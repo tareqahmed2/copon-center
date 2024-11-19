@@ -1,61 +1,76 @@
 import React, { createContext, useEffect, useState } from "react";
-import { auth } from "../firebaseConfig";
 import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
   signOut,
   onAuthStateChanged,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
-import { toast } from "react-toastify";
+import app from "../firebase.config";
 
 export const AuthContext = createContext();
-
+const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  console.log(user);
+  const [loading, setLoading] = useState(true);
+
+  const googleProvider = new GoogleAuthProvider();
+
+  const signInWithGoogle = async () => {
+    try {
+      setLoading(true);
+      const result = await signInWithPopup(auth, googleProvider);
+      setUser(result.user);
+    } catch (error) {
+      console.error(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const logOut = async () => {
+    try {
+      setLoading(true);
+      await signOut(auth);
+      setUser(null);
+    } catch (error) {
+      console.error(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const signUpWithEmail = async (email, password) => {
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const logInWithEmail = async (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      setLoading(false);
     });
-    return unsubscribe;
+
+    return () => unsubscribe();
   }, []);
-
-  const signup = async (email, password) => {
-    if (
-      password.length < 8 ||
-      !/[A-Z]/.test(password) ||
-      !/[0-9]/.test(password)
-    ) {
-      toast.error(
-        "Password must be at least 8 characters, include a number and a capital letter."
-      );
-      return;
-    }
-    try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      toast.success("Signup successful!");
-    } catch (error) {
-      toast.error(error.message);
-    }
-  };
-
-  const login = async (email, password) => {
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      toast.success("Login successful!");
-    } catch (error) {
-      toast.error("Invalid email or password.");
-    }
-  };
-
-  const logout = async () => {
-    await signOut(auth);
-    toast.info("Logged out successfully");
+  const authInfo = {
+    user,
+    loading,
+    signInWithGoogle,
+    logOut,
+    signUpWithEmail,
+    logInWithEmail,
   };
 
   return (
-    <AuthContext.Provider value={{ user, signup, login, logout }}>
-      {children}
+    <AuthContext.Provider value={authInfo}>
+      {!loading && children}
     </AuthContext.Provider>
   );
 };

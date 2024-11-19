@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 import AuthProvider from "./context/AuthContext.jsx";
-import Brands from "./components/Brand.jsx";
+
 import About from "./components/About.jsx";
 import UserProfile from "./components/UserProfile.jsx";
 import Login from "./components/Login.jsx";
@@ -17,6 +17,8 @@ import Root from "./components/Root.jsx";
 import TopBrands from "./components/TopBrands.jsx";
 import ProductProvider from "./context/ProductProvider.jsx";
 import ProductDetails from "./components/ProductDetails.jsx";
+import Brand from "./components/Brand.jsx";
+import BrandRoute from "./components/BrandRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,8 +30,12 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
+        path: "routebrands",
+        element: <BrandRoute></BrandRoute>,
+      },
+      {
         path: "brands",
-        element: <Brands></Brands>,
+        element: <Brand></Brand>,
       },
       {
         path: "about",
