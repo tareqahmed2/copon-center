@@ -1,0 +1,48 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Headphones",
+    "price": 150,
+    "image": "/images/headphones.jpg",
+    "isNewArrival": true,
+    "discount": 20,
+    "details": {
+      "description": "Experience high-quality sound with our Wireless Headphones, designed for music lovers on the go.",
+      "features": [
+        "Bluetooth 5.0",
+        "Noise Cancellation",
+        "20-hour Battery Life"
+      ],
+      "stock": 50,
+      "category": "Accessories"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Smartphone",
+    "price": 999,
+    "image": "/images/smartphone.jpg",
+    "isNewArrival": false,
+    "discount": 10,
+    "details": {
+      "description": "The latest smartphone with cutting-edge technology and sleek design.",
+      "features": ["6.5-inch Display", "128GB Storage", "Triple Camera System"],
+      "stock": 30,
+      "category": "Smartphones"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Laptop",
+    "price": 1200,
+    "image": "/images/laptop.jpg",
+    "isNewArrival": true,
+    "discount": 15,
+    "details": {
+      "description": "Powerful and portable, this laptop is perfect for work and play.",
+      "features": ["16GB RAM", "1TB SSD", "Intel i7 Processor"],
+      "stock": 20,
+      "category": "Laptops"
+    }
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "productId": 1,
+    "name": "John Doe",
+    "rating": 5,
+    "review": "Amazing sound quality! The noise cancellation is perfect.",
+    "timestamp": "2024-11-10",
+    "avatar": "/images/john.jpg"
+  },
+  {
+    "id": 2,
+    "productId": 1,
+    "name": "Jane Smith",
+    "rating": 4,
+    "review": "Good headphones for the price. Battery life could be longer.",
+    "timestamp": "2024-11-12",
+    "avatar": "/images/jane.jpg"
+  },
+  {
+    "id": 3,
+    "productId": 2,
+    "name": "Alex Johnson",
+    "rating": 4,
+    "review": "Great phone, but the camera quality could be better.",
+    "timestamp": "2024-11-15",
+    "avatar": "/images/alex.jpg"
+  },
+  {
+    "id": 4,
+    "productId": 3,
+    "name": "Emily Davis",
+    "rating": 5,
+    "review": "This laptop is extremely fast and the display is brilliant.",
+    "timestamp": "2024-11-16",
+    "avatar": "/images/emily.jpg"
+  }
+]

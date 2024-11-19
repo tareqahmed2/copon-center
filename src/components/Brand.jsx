@@ -6,7 +6,7 @@ const Brand = ({ brand }) => {
   const navigate = useNavigate();
 
   const handleBrandClick = (brandId) => {
-    navigate(`brands/${brandId}`);
+    navigate(`/brandDetails/${brandId}`);
   };
   return (
     <div>

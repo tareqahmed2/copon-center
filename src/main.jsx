@@ -16,9 +16,16 @@ import Home from "./components/Home.jsx";
 import Root from "./components/Root.jsx";
 import TopBrands from "./components/TopBrands.jsx";
 import ProductProvider from "./context/ProductProvider.jsx";
-import ProductDetails from "./components/ProductDetails.jsx";
+
 import Brand from "./components/Brand.jsx";
 import BrandRoute from "./components/BrandRoute.jsx";
+import BrandDetails from "./components/BrandDetails.jsx";
+import Feature from "./components/Feature.jsx";
+import FeatureDetails from "./components/FeatureDetails.jsx";
+import Review from "./components/Review.jsx";
+import ReviewDetails from "./components/ReviewDetails.jsx";
+import ReviewProvider from "./context/ReviewProvider.jsx";
+import FeatureProvider from "./context/FeatureProvider.jsx";
 
 const router = createBrowserRouter([
   {
@@ -62,8 +69,24 @@ const router = createBrowserRouter([
         element: <TopBrands></TopBrands>,
       },
       {
-        path: "productDetails/:id",
-        element: <ProductDetails></ProductDetails>,
+        path: "brandDetails/:brandId",
+        element: <BrandDetails></BrandDetails>,
+      },
+      {
+        path: "feature",
+        element: <Feature></Feature>,
+      },
+      {
+        path: "featureDetails",
+        element: <FeatureDetails></FeatureDetails>,
+      },
+      {
+        path: "review",
+        element: <Review></Review>,
+      },
+      {
+        path: "reviewDetails",
+        element: <ReviewDetails></ReviewDetails>,
       },
       {
         path: "*",
@@ -77,8 +100,12 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
       <ProductProvider>
-        <RouterProvider router={router}></RouterProvider>
-        <ToastContainer position="top-center"></ToastContainer>
+        <FeatureProvider>
+          <ReviewProvider>
+            <RouterProvider router={router}></RouterProvider>
+            <ToastContainer position="top-center"></ToastContainer>
+          </ReviewProvider>
+        </FeatureProvider>
       </ProductProvider>
     </AuthProvider>
   </StrictMode>
