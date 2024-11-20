@@ -20,7 +20,9 @@ const Brand = ({ brand }) => {
           alt={brand.brand_name}
           className="w-32 h-20 object-cover rounded-lg shadow-lg"
         />
-        <p className="text-center mt-2 font-semibold">{brand.brand_name}</p>
+        <p className="text-center mt-2 text-[#2c3e50 ] font-bold font-semibold">
+          {brand.brand_name}
+        </p>
       </div>
     </div>
   );

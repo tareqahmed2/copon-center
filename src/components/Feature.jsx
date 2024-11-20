@@ -20,7 +20,15 @@ const Feature = () => {
 
   return (
     <div>
-      <h2>Features</h2>
+      <h2 class="text-4xl font-bold text-primary mb-4 text-center">Features</h2>
+      <p
+        class="text-lg text-center
+      w-full md:w-2/3 mx-auto my-4 text-gray-700"
+      >
+        Discover the standout features that make our products unique and
+        performance-driven.
+      </p>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 md:gap-2 lg:gap-4">
         {features.length > 0 ? (
           features.map((feature) => (

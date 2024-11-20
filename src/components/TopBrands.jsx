@@ -12,7 +12,14 @@ const TopBrands = () => {
   return (
     <div>
       <div className=" py-10 px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">Top Brands</h2>
+        <h2 className="text-4xl  text-center font-extrabold text-[#E74C3C] mb-8">
+          Top Brands
+        </h2>
+        <p className="w-full px-1 md:w-2/3 mx-auto text-[#2C3E50] text-center my-5">
+          Explore top brands offering the best in quality, performance, and
+          innovation. Find your perfect product from trusted names in
+          technology.
+        </p>
         <Marquee pauseOnHover={true} speed={60} gradient={false}>
           <div className="flex items-center  space-x-8">
             {brands.map((brand) => (

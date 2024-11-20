@@ -7,15 +7,20 @@ import {
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import app from "../firebase.config";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
+
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  console.log(user);
+
   const [loading, setLoading] = useState(true);
+  const [photo, setPhoto] = useState(null);
+  const [name, setName] = useState(null);
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -24,8 +29,10 @@ const AuthProvider = ({ children }) => {
       setLoading(true);
       const result = await signInWithPopup(auth, googleProvider);
       setUser(result.user);
+      toast.success("Signed in successfully with Google!");
     } catch (error) {
       console.error(error.message);
+      toast.error("Failed to sign in with Google!");
     } finally {
       setLoading(false);
     }
@@ -36,19 +43,53 @@ const AuthProvider = ({ children }) => {
       setLoading(true);
       await signOut(auth);
       setUser(null);
+      toast.success("Logged out successfully!");
     } catch (error) {
       console.error(error.message);
+      toast.error("Failed to log out!");
     } finally {
       setLoading(false);
     }
   };
 
-  const signUpWithEmail = async (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password);
+  const signUpWithEmail = async (email, password, photoURL, name) => {
+    try {
+      setLoading(true);
+      await createUserWithEmailAndPassword(auth, email, password);
+      setPhoto(photoURL);
+      setName(name);
+      toast.success("User signed up successfully!");
+    } catch (error) {
+      console.error(error.message);
+      toast.error("Failed to sign up!");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const logInWithEmail = async (email, password) => {
-    return signInWithEmailAndPassword(auth, email, password);
+    try {
+      setLoading(true);
+      await signInWithEmailAndPassword(auth, email, password);
+      toast.success("Logged in successfully!");
+    } catch (error) {
+      console.error(error.message);
+      toast.error("Failed to log in!");
+    } finally {
+      setLoading(false);
+    }
+  };
+  const resetPassword = async (email) => {
+    try {
+      setLoading(true);
+      await sendPasswordResetEmail(auth, email);
+    } catch (error) {
+      console.error(error.message);
+      or;
+      toast.error("Failed to send password reset email!");
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -59,18 +100,27 @@ const AuthProvider = ({ children }) => {
 
     return () => unsubscribe();
   }, []);
+
   const authInfo = {
     user,
     loading,
+    photo,
     signInWithGoogle,
     logOut,
     signUpWithEmail,
     logInWithEmail,
+    resetPassword,
   };
 
   return (
     <AuthContext.Provider value={authInfo}>
-      {!loading && children}
+      {loading ? (
+        <div className="flex justify-center items-center h-screen">
+          <div className="animate-spin rounded-full h-24 w-24 border-t-4 border-blue-500"></div>
+        </div>
+      ) : (
+        children
+      )}
     </AuthContext.Provider>
   );
 };

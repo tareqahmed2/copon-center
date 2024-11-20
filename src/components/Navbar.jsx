@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { NavLink, useNavigate } from "react-router-dom";
 import { IoHomeOutline } from "react-icons/io5";
@@ -8,8 +8,11 @@ import { FaUser, FaSignOutAlt } from "react-icons/fa";
 import logo from "../assets/logo.png";
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut, photo, name } = useContext(AuthContext);
+
+  console.log(user);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const links = (
     <>
@@ -62,9 +65,27 @@ const Navbar = () => {
     </>
   );
 
+  const handleLogOut = async () => {
+    try {
+      setLoading(true);
+      await logOut();
+      navigate("/login");
+    } catch (error) {
+      toast.error("Failed to log out!");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
+
   return (
-    <div>
-      <div className="navbar w-11/12 mx-auto bg-base-100 flex justify-between ">
+    <div className="bg-slate-200 sticky top-0 z-10 mb-5">
+      <div className="navbar w-11/12   mx-auto  flex justify-between ">
         <div className="navbar-start w-full md:w-1/4">
           <div className="dropdown lg:hidden">
             <label tabIndex={0} className="btn btn-ghost px-0 md:px-1">
@@ -108,23 +129,25 @@ const Navbar = () => {
           {user ? (
             <div className="flex items-center gap-4">
               <h3 className="hidden md:block font-semibold text-accent text-sm">
-                Welcome, {user.displayName || "User"}!
+                Welcome, {user?.displayName || name || "User"}!
               </h3>
               <img
-                src={user && user.photoURL}
-                alt={user && user.displayName}
                 className="w-10 h-10 rounded-full"
+                src={user?.photoURL || photo}
+                alt="User"
               />
-              <span className="text-xs hidden md:block">
-                {" "}
-                {user && user.email}
-              </span>
+              <span className="text-xs hidden md:block"> {user?.email}</span>
               <button
-                onClick={logOut}
+                onClick={handleLogOut}
                 className="btn btn-outline btn-accent flex items-center gap-1"
+                disabled={loading}
               >
-                <FaSignOutAlt />
-                Log Out
+                {loading ? (
+                  <div className="animate-spin rounded-full h-5 w-5 border-t-4 border-blue-500"></div>
+                ) : (
+                  <FaSignOutAlt />
+                )}
+                {loading ? "Logging out..." : "Log Out"}
               </button>
             </div>
           ) : (
@@ -137,7 +160,7 @@ const Navbar = () => {
               </button>
               <button
                 onClick={() => navigate("/register")}
-                className="btn btn-accent"
+                className="btn btn-primary"
               >
                 Register
               </button>

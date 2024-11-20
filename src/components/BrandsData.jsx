@@ -47,7 +47,7 @@ const BrandsData = ({ brand }) => {
           </ul>
         </div>
         <div className="card-actions justify-end mt-4">
-          <a href={shop_Link} className="btn btn-primary">
+          <a href="#" className="btn btn-primary">
             Visit Store
           </a>
         </div>

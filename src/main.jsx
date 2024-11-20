@@ -100,10 +100,10 @@ createRoot(document.getElementById("root")).render(
         <FeatureProvider>
           <ReviewProvider>
             <RouterProvider router={router}></RouterProvider>
-            <ToastContainer position="top-center"></ToastContainer>
           </ReviewProvider>
         </FeatureProvider>
       </ProductProvider>
     </AuthProvider>
+    <ToastContainer position="top-center" autoClose={3000} />
   </StrictMode>
 );
