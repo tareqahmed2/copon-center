@@ -42,16 +42,13 @@ const router = createBrowserRouter([
       },
       {
         path: "brands",
-        element: <Brand></Brand>,
+        element: <BrandRoute></BrandRoute>,
       },
       {
         path: "about",
         element: <About></About>,
       },
-      {
-        path: "about",
-        element: <About></About>,
-      },
+
       {
         path: "userprofile",
         element: <UserProfile></UserProfile>,
@@ -77,7 +74,7 @@ const router = createBrowserRouter([
         element: <Feature></Feature>,
       },
       {
-        path: "featureDetails",
+        path: "featureDetails/:id",
         element: <FeatureDetails></FeatureDetails>,
       },
       {

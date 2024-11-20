@@ -1,19 +1,11 @@
 import React, { createContext, useEffect, useState } from "react";
-const FeatureContext = createContext();
+
+export const FeatureContext = createContext();
+
 const FeatureProvider = ({ children }) => {
-  const [features, setFeatures] = useState(null);
-  useEffect(() => {
-    fetch("./feature.json")
-      .then((response) => response.json())
-      .then((data) => {
-        setFeatures(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching the data:", error);
-      });
-  }, []);
-  console.log(features);
-  const featureInfo = { features };
+  const [loading, setLoading] = useState(true);
+
+  const featureInfo = { loading };
   return (
     <FeatureContext.Provider value={featureInfo}>
       {children}

@@ -3,8 +3,8 @@
     "id": 1,
     "name": "Wireless Headphones",
     "price": 150,
-    "image": "/images/headphones.jpg",
-    "isNewArrival": true,
+    "image": "https://i.postimg.cc/N0GWrfhQ/feature.jpg",
+    "isNewArrival": false,
     "discount": 20,
     "details": {
       "description": "Experience high-quality sound with our Wireless Headphones, designed for music lovers on the go.",
@@ -21,8 +21,8 @@
     "id": 2,
     "name": "Smartphone",
     "price": 999,
-    "image": "/images/smartphone.jpg",
-    "isNewArrival": false,
+    "image": "https://i.postimg.cc/W49xmLjg/smartphone.jpg",
+    "isNewArrival": true,
     "discount": 10,
     "details": {
       "description": "The latest smartphone with cutting-edge technology and sleek design.",
@@ -35,7 +35,7 @@
     "id": 3,
     "name": "Laptop",
     "price": 1200,
-    "image": "/images/laptop.jpg",
+    "image": "https://i.postimg.cc/brnMjZn9/laptop.jpg",
     "isNewArrival": true,
     "discount": 15,
     "details": {

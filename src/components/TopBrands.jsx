@@ -14,7 +14,7 @@ const TopBrands = () => {
       <div className=" py-10 px-4">
         <h2 className="text-3xl font-bold text-center mb-8">Top Brands</h2>
         <Marquee pauseOnHover={true} speed={60} gradient={false}>
-          <div className="flex items-center space-x-8">
+          <div className="flex items-center  space-x-8">
             {brands.map((brand) => (
               <Brand key={brand.id} brand={brand}></Brand>
             ))}
