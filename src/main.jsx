@@ -26,6 +26,7 @@ import Review from "./components/Review.jsx";
 import ReviewDetails from "./components/ReviewDetails.jsx";
 import ReviewProvider from "./context/ReviewProvider.jsx";
 import FeatureProvider from "./context/FeatureProvider.jsx";
+import CoponPage from "./components/CoponPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: "userprofile",
         element: <UserProfile></UserProfile>,
+      },
+      {
+        path: "coponpage",
+        element: <CoponPage></CoponPage>,
       },
       {
         path: "login",
@@ -104,6 +109,6 @@ createRoot(document.getElementById("root")).render(
         </FeatureProvider>
       </ProductProvider>
     </AuthProvider>
-    <ToastContainer position="top-center" autoClose={3000} />
+    <ToastContainer position="top-center" autoClose={1000} />
   </StrictMode>
 );

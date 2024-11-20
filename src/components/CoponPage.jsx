@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
-const UserProfile = () => {
+const CoponPage = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -14,9 +14,9 @@ const UserProfile = () => {
 
   return (
     <div>
-      <h2>User Profile</h2>
+      <h2>copon page</h2>
     </div>
   );
 };
 
-export default UserProfile;
+export default CoponPage;

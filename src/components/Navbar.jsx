@@ -6,7 +6,7 @@ import { TbBrandSafari } from "react-icons/tb";
 import { FcAbout } from "react-icons/fc";
 import { FaUser, FaSignOutAlt } from "react-icons/fa";
 import logo from "../assets/logo.png";
-
+import { CiCreditCard1 } from "react-icons/ci";
 const Navbar = () => {
   const { user, logOut, photo, name } = useContext(AuthContext);
 
@@ -51,6 +51,19 @@ const Navbar = () => {
           </NavLink>
         </li>
       )}
+      {user && (
+        <li>
+          <NavLink
+            to="/coponpage"
+            className={({ isActive }) =>
+              isActive ? "text-accent font-bold" : ""
+            }
+          >
+            <CiCreditCard1 />
+            Copon Page
+          </NavLink>
+        </li>
+      )}
       <li>
         <NavLink
           to="/about"
@@ -84,7 +97,7 @@ const Navbar = () => {
   }, [user, navigate]);
 
   return (
-    <div className="bg-slate-200 sticky top-0 z-10 mb-5">
+    <div className="bg-slate-200 sticky top-0 backdrop-blur-lg z-10 mb-5">
       <div className="navbar w-11/12   mx-auto  flex justify-between ">
         <div className="navbar-start w-full md:w-1/4">
           <div className="dropdown lg:hidden">

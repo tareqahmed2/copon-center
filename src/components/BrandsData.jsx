@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 const BrandsData = ({ brand }) => {
   const {
@@ -11,7 +12,9 @@ const BrandsData = ({ brand }) => {
     category,
     isSaleOn,
   } = brand;
-
+  const handleVisitStore = () => {
+    toast.warn("Function didn't implement yet!");
+  };
   return (
     <div className="card bg-base-100 shadow-xl p-3 my-4">
       <img
@@ -47,7 +50,7 @@ const BrandsData = ({ brand }) => {
           </ul>
         </div>
         <div className="card-actions justify-end mt-4">
-          <a href="#" className="btn btn-primary">
+          <a href="#" onClick={handleVisitStore} className="btn btn-primary">
             Visit Store
           </a>
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const FeatureCard = ({ feature }) => {
   const navigate = useNavigate();
@@ -14,6 +15,9 @@ const FeatureCard = ({ feature }) => {
   } = feature;
   const handleDetailsClick = () => {
     navigate(`featureDetails/${id}`);
+  };
+  const handleBuyNow = () => {
+    toast.warn("Function didn't implement yet!");
   };
   return (
     <div className="card bg-base-100 shadow-xl border border-gray-200 flex flex-col">
@@ -49,7 +53,9 @@ const FeatureCard = ({ feature }) => {
           ))}
         </ul>
         <div className="card-actions flex justify-between mt-4">
-          <button className="btn btn-primary btn-sm">Buy Now</button>
+          <button onClick={handleBuyNow} className="btn btn-primary btn-sm">
+            Buy Now
+          </button>
           <button
             onClick={handleDetailsClick}
             className="btn btn-outline btn-sm"
