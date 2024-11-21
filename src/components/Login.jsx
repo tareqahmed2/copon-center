@@ -30,20 +30,6 @@ const Login = () => {
     const email = emailRef.current?.value || "";
     navigate("/forgetPassword", { state: { email } });
   };
-  const handleForgetPassword = () => {
-    const email = emailRef.current.value;
-    if (!email) {
-      toast.error("Please enter your email to reset your password.");
-      return;
-    }
-    resetPassword(email)
-      .then(() => {
-        toast.warning("Password reset email sent! Check your inbox.");
-      })
-      .catch((error) => {
-        toast.error("Error resetting password:", error.message);
-      });
-  };
 
   return (
     <div className="flex justify-center items-center my-10 mx-5">

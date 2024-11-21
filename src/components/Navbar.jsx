@@ -7,11 +7,19 @@ import { FcAbout } from "react-icons/fc";
 import { FaUser, FaSignOutAlt } from "react-icons/fa";
 import logo from "../assets/logo.png";
 import { CiCreditCard1 } from "react-icons/ci";
+import { CiLogin } from "react-icons/ci";
 const Navbar = () => {
   const { user, logOut, photo, name, isFirstLogin, setFirstLogin } =
     useContext(AuthContext);
 
-  console.log(user);
+  const [updateName, setUpdateName] = useState(name);
+  const [updatePhoto, setUpdatePhoto] = useState(photo);
+  useEffect(() => {
+    setUpdateName(name);
+  }, [name]);
+  useEffect(() => {
+    setUpdatePhoto(photo);
+  }, [photo]);
   const navigate = useNavigate();
   useEffect(() => {
     if (user && isFirstLogin) {
@@ -43,6 +51,17 @@ const Navbar = () => {
         >
           <TbBrandSafari />
           Brands
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/login"
+          className={({ isActive }) =>
+            isActive ? "text-accent font-bold" : ""
+          }
+        >
+          <CiLogin />
+          Login
         </NavLink>
       </li>
       {user && (
@@ -127,7 +146,7 @@ const Navbar = () => {
           </div>
           <div>
             <img
-              className="w-16 cursor-pointer"
+              className="w-12 h-12 rounded-full cursor-pointer"
               src={logo}
               alt="Logo"
               onClick={() => navigate("/")}
@@ -143,11 +162,16 @@ const Navbar = () => {
           {user ? (
             <div className="flex items-center gap-4">
               <h3 className="hidden md:block font-semibold text-accent text-sm">
-                Welcome, {user?.displayName || name || "User"}!
+                Welcome, {updateName || user?.displayName || name || "User"}!
               </h3>
               <img
                 className="w-10 h-10 rounded-full"
-                src={user?.photoURL || photo}
+                src={
+                  updatePhoto ||
+                  user?.photoURL ||
+                  photo ||
+                  "https://via.placeholder.com/150"
+                }
                 alt="User"
               />
               <span className="text-xs hidden md:block"> {user?.email}</span>

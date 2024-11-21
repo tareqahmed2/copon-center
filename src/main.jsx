@@ -29,6 +29,7 @@ import FeatureProvider from "./context/FeatureProvider.jsx";
 import CoponPage from "./components/CoponPage.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
 import ForgetPassword from "./components/ForgetPassword.jsx";
+import UpdateProfile from "./components/UpdateProfile.jsx";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: "userprofile",
         element: <UserProfile></UserProfile>,
+      },
+      {
+        path: "updateProfile",
+        element: <UpdateProfile></UpdateProfile>,
       },
       {
         path: "coponpage",

@@ -8,10 +8,11 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
+  updateProfile,
 } from "firebase/auth";
 import app from "../firebase.config";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+
 export const AuthContext = createContext();
 const auth = getAuth(app);
 
@@ -21,6 +22,7 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [photo, setPhoto] = useState(null);
   const [name, setName] = useState(null);
+
   const [isFirstLogin, setFirstLogin] = useState(true);
 
   const googleProvider = new GoogleAuthProvider();
@@ -110,17 +112,38 @@ const AuthProvider = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
+  const handleProfileUpdate = async () => {
+    try {
+      if (auth.currentUser) {
+        await updateProfile(auth.currentUser, {
+          displayName: name,
+          photoURL: photo,
+        });
+
+        toast.success("Profile updated successfully!");
+      } else {
+        toast.error("User not authenticated!");
+      }
+    } catch (error) {
+      console.error(error.message);
+      toast.error(`Failed to update profile: ${error.message}`);
+    }
+  };
+
   const authInfo = {
     user,
     loading,
     photo,
     isFirstLogin,
+    setName,
+    setPhoto,
     setFirstLogin,
     signInWithGoogle,
     logOut,
     signUpWithEmail,
     logInWithEmail,
     resetPassword,
+    handleProfileUpdate,
   };
 
   return (

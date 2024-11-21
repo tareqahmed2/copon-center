@@ -1,9 +1,11 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getAuth, sendPasswordResetEmail, signOut } from "firebase/auth";
+import { AuthContext } from "../context/AuthContext";
 
 const ForgetPassword = () => {
+  const { user, logOut } = useContext(AuthContext);
   const auth = getAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -15,6 +17,9 @@ const ForgetPassword = () => {
     if (!email) {
       toast.error("Please enter your email to reset your password.");
       return;
+    }
+    if (user) {
+      logOut();
     }
 
     try {

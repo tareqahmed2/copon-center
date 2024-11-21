@@ -1,8 +1,8 @@
-import React from "react";
 import cpn1 from "../assets/cpn1.jpg";
 import cpn2 from "../assets/cpn2.jpg";
 import cpn3 from "../assets/cpn3.jpg";
 import cpn4 from "../assets/cpn4.webp";
+
 const Banner = () => {
   return (
     <div className="carousel w-full">
