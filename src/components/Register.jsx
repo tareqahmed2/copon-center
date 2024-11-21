@@ -48,8 +48,8 @@ const Register = () => {
       });
   };
   return (
-    <div className="flex justify-center items-center">
-      <div className="card bg-base-100 w-full md:w-1/4 shrink-0 shadow-2xl">
+    <div className="flex justify-center items-center mx-5">
+      <div className="card bg-base-100 w-full md:w-3/4 lg:w-3/6 shrink-0 shadow-2xl">
         <h2 className="text-2xl my-10 font-bold text-center mb-2 text-blue-600">
           Register Now!
         </h2>

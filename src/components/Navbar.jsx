@@ -8,10 +8,17 @@ import { FaUser, FaSignOutAlt } from "react-icons/fa";
 import logo from "../assets/logo.png";
 import { CiCreditCard1 } from "react-icons/ci";
 const Navbar = () => {
-  const { user, logOut, photo, name } = useContext(AuthContext);
+  const { user, logOut, photo, name, isFirstLogin, setFirstLogin } =
+    useContext(AuthContext);
 
   console.log(user);
   const navigate = useNavigate();
+  useEffect(() => {
+    if (user && isFirstLogin) {
+      navigate("/");
+      setFirstLogin(false);
+    }
+  }, [user, setFirstLogin, navigate]);
   const [loading, setLoading] = useState(false);
 
   const links = (
@@ -89,12 +96,6 @@ const Navbar = () => {
       setLoading(false);
     }
   };
-
-  useEffect(() => {
-    if (user) {
-      navigate("/");
-    }
-  }, [user, navigate]);
 
   return (
     <div className="bg-slate-200 sticky top-0 backdrop-blur-lg z-10 mb-5">

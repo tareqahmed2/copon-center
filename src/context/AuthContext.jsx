@@ -11,7 +11,7 @@ import {
 } from "firebase/auth";
 import app from "../firebase.config";
 import { toast } from "react-toastify";
-
+import { useNavigate } from "react-router-dom";
 export const AuthContext = createContext();
 const auth = getAuth(app);
 
@@ -21,6 +21,7 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [photo, setPhoto] = useState(null);
   const [name, setName] = useState(null);
+  const [isFirstLogin, setFirstLogin] = useState(true);
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -30,6 +31,7 @@ const AuthProvider = ({ children }) => {
       const result = await signInWithPopup(auth, googleProvider);
       setUser(result.user);
       toast.success("Signed in successfully with Google!");
+      setFirstLogin(true);
     } catch (error) {
       console.error(error.message);
       toast.error("Failed to sign in with Google!");
@@ -56,9 +58,13 @@ const AuthProvider = ({ children }) => {
     try {
       setLoading(true);
       await createUserWithEmailAndPassword(auth, email, password);
-      setPhoto(photoURL);
-      setName(name);
+      setUser((prevUser) => {
+        return { ...prevUser, photoURL, displayName: name };
+      });
+      await setPhoto(photoURL);
+      await setName(name);
       toast.success("User signed up successfully!");
+      setFirstLogin(true);
     } catch (error) {
       console.error(error.message);
       toast.error("Failed to sign up!");
@@ -96,6 +102,7 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
+      setFirstLogin(false);
       if (!currentUser) {
       }
     });
@@ -107,6 +114,8 @@ const AuthProvider = ({ children }) => {
     user,
     loading,
     photo,
+    isFirstLogin,
+    setFirstLogin,
     signInWithGoogle,
     logOut,
     signUpWithEmail,

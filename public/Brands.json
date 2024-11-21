@@ -21,7 +21,7 @@
         "coupon_type": "Shipping"
       }
     ],
-    "shop_Link": "https://techworld.com",
+    "shop_Link": "https://techworldbd24.com/",
     "category": "Electronics",
     "isSaleOn": true
   },
@@ -47,7 +47,7 @@
         "coupon_type": "User Exclusive"
       }
     ],
-    "shop_Link": "https://fashionhub.com",
+    "shop_Link": "https://fashionhub.com.my/",
     "category": "Fashion",
     "isSaleOn": false
   },
@@ -73,7 +73,7 @@
         "coupon_type": "Cashback"
       }
     ],
-    "shop_Link": "https://homeessentials.com",
+    "shop_Link": "https://www.target.com/b/home-essentials/-/N-q643leeynvz",
     "category": "Home & Kitchen",
     "isSaleOn": true
   },
@@ -125,7 +125,7 @@
         "coupon_type": "Discount"
       }
     ],
-    "shop_Link": "https://gourmetdelights.com",
+    "shop_Link": "https://www.healthmart.com/",
     "category": "Food & Beverages",
     "isSaleOn": true
   },
@@ -151,7 +151,7 @@
         "coupon_type": "Accommodation"
       }
     ],
-    "shop_Link": "https://traveltime.com",
+    "shop_Link": "https://traveltime.com/",
     "category": "Travel",
     "isSaleOn": true
   }

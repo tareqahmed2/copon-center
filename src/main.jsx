@@ -27,6 +27,8 @@ import ReviewDetails from "./components/ReviewDetails.jsx";
 import ReviewProvider from "./context/ReviewProvider.jsx";
 import FeatureProvider from "./context/FeatureProvider.jsx";
 import CoponPage from "./components/CoponPage.jsx";
+import ErrorPage from "./components/ErrorPage.jsx";
+import ForgetPassword from "./components/ForgetPassword.jsx";
 
 const router = createBrowserRouter([
   {
@@ -63,6 +65,10 @@ const router = createBrowserRouter([
         element: <Login></Login>,
       },
       {
+        path: "forgetPassword",
+        element: <ForgetPassword></ForgetPassword>,
+      },
+      {
         path: "register",
         element: <Register></Register>,
       },
@@ -92,7 +98,7 @@ const router = createBrowserRouter([
       },
       {
         path: "*",
-        element: <h2>data not found</h2>,
+        element: <ErrorPage></ErrorPage>,
       },
     ],
   },
