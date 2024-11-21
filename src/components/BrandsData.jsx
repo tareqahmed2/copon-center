@@ -44,10 +44,10 @@ const BrandsData = ({ brand }) => {
                 key={index}
                 className="flex items-start gap-1 justify-between"
               >
-                <span className="w-4/5">
+                <span className="w-4/5 text-[10px] md:text-[16px]">
                   {coupon.coupon_code} - {coupon.description}
                 </span>
-                <span className="text-xs w-2/5 my-1 bg-green-300 p-1 flex items-center justify-center rounded-full">
+                <span className="text-[8px] md:text-xs w-2/5 my-1 bg-green-300 p-1 flex items-center justify-center rounded-full">
                   {coupon.expiry_date}
                 </span>
               </li>

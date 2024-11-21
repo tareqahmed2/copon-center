@@ -154,5 +154,109 @@
     "shop_Link": "https://traveltime.com/",
     "category": "Travel",
     "isSaleOn": true
+  },
+  {
+    "_id": "63e92f0c5e2b1b001a9d0137",
+    "brand_name": "AutoWorld",
+    "rating": 4.2,
+    "description": "Your go-to for automotive products and accessories.",
+    "brand_logo": "https://i.postimg.cc/6pCK8h3N/auto.jpg",
+    "coupons": [
+      {
+        "coupon_code": "AUTO15",
+        "description": "15% off on all automotive products",
+        "expiry_date": "2024-12-20",
+        "condition": "Minimum purchase of $50",
+        "coupon_type": "Discount"
+      },
+      {
+        "coupon_code": "FREESHIPAUTO",
+        "description": "Free shipping on all automotive products",
+        "expiry_date": "2024-11-30",
+        "condition": "Applicable for all products",
+        "coupon_type": "Shipping"
+      }
+    ],
+    "shop_Link": "https://www.autoworldstore.com/?srsltid=AfmBOooJJGkxe1odC8O1lkRlINPutI8etzOOWa16yM9Ohn6WkHNNMCjJ",
+    "category": "Automotive",
+    "isSaleOn": true
+  },
+  {
+    "_id": "63e92f0c5e2b1b001a9d0138",
+    "brand_name": "PetParadise",
+    "rating": 4.4,
+    "description": "Everything your pets need, from food to accessories.",
+    "brand_logo": "https://i.postimg.cc/0NxsDJMK/pet.png",
+    "coupons": [
+      {
+        "coupon_code": "PET10",
+        "description": "10% off on all pet food",
+        "expiry_date": "2024-12-25",
+        "condition": "No minimum purchase",
+        "coupon_type": "Discount"
+      },
+      {
+        "coupon_code": "PETCLEAN",
+        "description": "Free cleaning accessories with purchase above $75",
+        "expiry_date": "2024-11-30",
+        "condition": "Applicable for all products",
+        "coupon_type": "Gift"
+      }
+    ],
+    "shop_Link": "https://www.petparadise.com/",
+    "category": "Pets",
+    "isSaleOn": true
+  },
+  {
+    "_id": "63e92f0c5e2b1b001a9d0140",
+    "brand_name": "BeautyBliss",
+    "rating": 4.8,
+    "description": "Premium beauty and skincare products.",
+    "brand_logo": "https://i.postimg.cc/FsL56x0J/beuty.jpg",
+    "coupons": [
+      {
+        "coupon_code": "BEAUTY20",
+        "description": "20% off on all skincare products",
+        "expiry_date": "2024-12-25",
+        "condition": "No minimum purchase",
+        "coupon_type": "Discount"
+      },
+      {
+        "coupon_code": "NEWBEAUTY10",
+        "description": "10% off for first-time customers",
+        "expiry_date": "2024-12-10",
+        "condition": "First order only",
+        "coupon_type": "New Customer"
+      }
+    ],
+    "shop_Link": "https://beautybliss.co.nz/",
+    "category": "Beauty & Skincare",
+    "isSaleOn": true
+  },
+  {
+    "_id": "63e92f0c5e2b1b001a9d0141",
+    "brand_name": "SportsGear",
+    "rating": 4.3,
+    "description": "High-quality sports equipment and gear for all levels.",
+    "brand_logo": "https://i.postimg.cc/LsvrPQFG/sprot.png",
+    "coupons": [
+      {
+        "coupon_code": "SPORTS15",
+        "description": "15% off on sports equipment",
+        "expiry_date": "2024-11-30",
+        "condition": "Minimum purchase of $50",
+        "coupon_type": "Discount"
+      },
+      {
+        "coupon_code": "FREEGEAR",
+        "description": "Free water bottle with purchases over $100",
+        "expiry_date": "2024-12-05",
+        "condition": "Only for sports gear",
+        "coupon_type": "Gift"
+      }
+    ],
+    "shop_Link": "https://www.sportsgearswag.com/?srsltid=AfmBOorkEZvXE-v-EGu4tqu5IVaya5GFLAvUZEDsJfjbTQit5cwoN2nT",
+    "category": "Sports & Outdoors",
+    "isSaleOn": false
   }
 ]

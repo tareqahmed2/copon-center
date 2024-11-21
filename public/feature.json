@@ -44,5 +44,83 @@
       "stock": 20,
       "category": "Laptops"
     }
+  },
+  {
+    "id": 4,
+    "name": "Smartwatch",
+    "price": 250,
+    "image": "https://i.postimg.cc/KzHwqKzN/smw.jpg",
+    "isNewArrival": false,
+    "discount": 10,
+    "details": {
+      "description": "Stay connected and track your fitness with this sleek smartwatch.",
+      "features": [
+        "Heart Rate Monitor",
+        "Sleep Tracking",
+        "Notifications & Alerts"
+      ],
+      "stock": 100,
+      "category": "Accessories"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Gaming Console",
+    "price": 450,
+    "image": "https://i.postimg.cc/MZcpWVyz/cng.jpg",
+    "isNewArrival": true,
+    "discount": 25,
+    "details": {
+      "description": "The ultimate gaming experience with this next-gen console.",
+      "features": ["4K Gaming", "1TB Storage", "DualShock Controller"],
+      "stock": 50,
+      "category": "Electronics"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Bluetooth Speaker",
+    "price": 80,
+    "image": "https://i.postimg.cc/CLkM80Pt/speaker.jpg",
+    "isNewArrival": false,
+    "discount": 15,
+    "details": {
+      "description": "Portable Bluetooth speaker with rich sound quality.",
+      "features": ["Waterproof", "12-hour Battery Life", "Built-in Microphone"],
+      "stock": 75,
+      "category": "Accessories"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Wireless Mouse",
+    "price": 40,
+    "image": "https://i.postimg.cc/t4zXr5HN/wireles.jpg",
+    "isNewArrival": false,
+    "discount": 5,
+    "details": {
+      "description": "Comfortable and ergonomic wireless mouse for daily use.",
+      "features": [
+        "Ergonomic Design",
+        "Wireless Connectivity",
+        "Adjustable DPI"
+      ],
+      "stock": 200,
+      "category": "Accessories"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Tablet",
+    "price": 499,
+    "image": "https://i.postimg.cc/1zCyS3Xg/tablet.jpg",
+    "isNewArrival": true,
+    "discount": 10,
+    "details": {
+      "description": "Sleek and versatile tablet for work, play, and entertainment.",
+      "features": ["10.5-inch Display", "64GB Storage", "Octa-core Processor"],
+      "stock": 40,
+      "category": "Tablets"
+    }
   }
 ]

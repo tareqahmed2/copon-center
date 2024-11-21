@@ -34,5 +34,59 @@
     "review": "This laptop is extremely fast and the display is brilliant.",
     "timestamp": "2024-11-16",
     "avatar": "https://i.postimg.cc/bYnX2wVj/emil.jpg"
+  },
+  {
+    "id": 5,
+    "productId": 1,
+    "name": "Michael Brown",
+    "rating": 5,
+    "review": "Best headphones I have ever used. The sound clarity is outstanding!",
+    "timestamp": "2024-11-18",
+    "avatar": "https://i.postimg.cc/PJmGCXXQ/mic.jpg"
+  },
+  {
+    "id": 6,
+    "productId": 2,
+    "name": "Sophia Williams",
+    "rating": 3,
+    "review": "Decent phone, but a bit overpriced for the features offered.",
+    "timestamp": "2024-11-17",
+    "avatar": "https://i.postimg.cc/YqHKJWRn/sophia1.jpg"
+  },
+  {
+    "id": 7,
+    "productId": 3,
+    "name": "Daniel Garcia",
+    "rating": 5,
+    "review": "Excellent laptop for both work and entertainment. Totally worth the price.",
+    "timestamp": "2024-11-19",
+    "avatar": "https://i.postimg.cc/YqzKkCyp/daniel.jpg"
+  },
+  {
+    "id": 8,
+    "productId": 4,
+    "name": "Olivia Martinez",
+    "rating": 4,
+    "review": "The smartwatch is great for fitness tracking, but I wish it had more app integrations.",
+    "timestamp": "2024-11-20",
+    "avatar": "https://i.postimg.cc/wB3Shcxv/oliv.jpg"
+  },
+  {
+    "id": 9,
+    "productId": 5,
+    "name": "James Wilson",
+    "rating": 4,
+    "review": "Great gaming console, but it gets a bit noisy during extended use.",
+    "timestamp": "2024-11-21",
+    "avatar": "https://i.postimg.cc/vmjCXgDv/james.jpg"
+  },
+  {
+    "id": 10,
+    "productId": 6,
+    "name": "Ava Lee",
+    "rating": 5,
+    "review": "Amazing Bluetooth speaker! The sound quality is top-notch, and it's very portable.",
+    "timestamp": "2024-11-22",
+    "avatar": "https://i.postimg.cc/j57m1x7Y/ava.jpg"
   }
 ]

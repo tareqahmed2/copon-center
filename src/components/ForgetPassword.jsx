@@ -25,7 +25,7 @@ const ForgetPassword = () => {
     try {
       await sendPasswordResetEmail(auth, email);
       toast.success("Password reset email sent! Check your inbox.");
-
+      navigate("/");
       await signOut(auth);
 
       window.open("https://mail.google.com", "_blank");
