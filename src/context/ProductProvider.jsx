@@ -9,7 +9,7 @@ const ProductProvider = ({ children }) => {
       .then((data) => setBrands(data))
       .catch((error) => console.error("Error fetching brand data:", error));
   }, []);
-  console.log(brands);
+  // console.log(brands);
   const productInfo = {
     brands,
   };

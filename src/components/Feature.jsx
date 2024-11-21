@@ -13,7 +13,7 @@ const Feature = () => {
         setLoading(false);
       })
       .catch((error) => {
-        console.error("Error fetching the data:", error);
+        // console.error("Error fetching the data:", error);
         setLoading(false);
       });
   }, []);
