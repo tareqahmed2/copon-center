@@ -32,6 +32,10 @@ const Login = () => {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+  const handleGooglePopUp = () => {
+    navigate("/");
+    signInWithGoogle();
+  };
 
   return (
     <div className="flex justify-center items-center my-10 mx-5">
@@ -86,7 +90,7 @@ const Login = () => {
           <div className="form-control mt-6">
             <button className="btn btn-accent">Login</button>
           </div>
-          <button onClick={signInWithGoogle} className="btn flex items-center">
+          <button onClick={handleGooglePopUp} className="btn flex items-center">
             <span>
               <FaGoogle />
             </span>
