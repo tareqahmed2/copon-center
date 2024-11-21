@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
 const UserProfile = () => {
-  const { user, photo, name } = useContext(AuthContext);
+  const { user, photo, name, loading, setLoading } = useContext(AuthContext);
   const navigate = useNavigate();
   const [updateName, setUpdateName] = useState(name);
   const [updatePhoto, setUpdatePhoto] = useState(photo);
@@ -28,10 +28,10 @@ const UserProfile = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gray-100">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
       <div className="w-11/12 mx-auto h-64 bg-blue-500 flex items-center justify-center text-white">
         <h1 className="text-xl md:text-4xl font-bold">
-          Welcome, {updateName || user?.displayName || name || "User"}!
+          Welcome, {updateName || user?.displayName || "User"}!
         </h1>
       </div>
 

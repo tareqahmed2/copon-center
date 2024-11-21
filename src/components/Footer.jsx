@@ -78,6 +78,9 @@ const Footer = () => {
           </div>
         </nav>
       </footer>
+      <p className="text-center py-5 font-bold">
+        &copy;Tareq Ahmed.All right reserved 2024.
+      </p>
     </div>
   );
 };

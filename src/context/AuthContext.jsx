@@ -18,12 +18,9 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-
   const [loading, setLoading] = useState(true);
   const [photo, setPhoto] = useState(null);
   const [name, setName] = useState(null);
-
-  const [isFirstLogin, setFirstLogin] = useState(true);
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -33,9 +30,7 @@ const AuthProvider = ({ children }) => {
       const result = await signInWithPopup(auth, googleProvider);
       setUser(result.user);
       toast.success("Signed in successfully with Google!");
-      setFirstLogin(true);
     } catch (error) {
-      console.error(error.message);
       toast.error("Failed to sign in with Google!");
     } finally {
       setLoading(false);
@@ -49,26 +44,30 @@ const AuthProvider = ({ children }) => {
       setUser(null);
       toast.success("Logged out successfully!");
     } catch (error) {
-      console.error(error.message);
       toast.error("Failed to log out!");
     } finally {
       setLoading(false);
     }
   };
 
-  const signUpWithEmail = async (email, password, photoURL, name) => {
+  const signUpWithEmail = async (email, password, photoURL, displayName) => {
     try {
       setLoading(true);
-      await createUserWithEmailAndPassword(auth, email, password);
-      setUser((prevUser) => {
-        return { ...prevUser, photoURL, displayName: name };
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const newUser = userCredential.user;
+
+      await updateProfile(newUser, {
+        displayName,
+        photoURL,
       });
-      await setPhoto(photoURL);
-      await setName(name);
+
+      setUser({ ...newUser, displayName, photoURL });
       toast.success("User signed up successfully!");
-      setFirstLogin(true);
     } catch (error) {
-      console.error(error.message);
       toast.error("Failed to sign up!");
     } finally {
       setLoading(false);
@@ -78,23 +77,51 @@ const AuthProvider = ({ children }) => {
   const logInWithEmail = async (email, password) => {
     try {
       setLoading(true);
-      await signInWithEmailAndPassword(auth, email, password);
+      const result = await signInWithEmailAndPassword(auth, email, password);
+      setUser(result.user);
       toast.success("Logged in successfully!");
     } catch (error) {
-      console.error(error.message);
       toast.error("Failed to log in!");
     } finally {
       setLoading(false);
     }
   };
+
   const resetPassword = async (email) => {
     try {
       setLoading(true);
       await sendPasswordResetEmail(auth, email);
+      toast.success("Password reset email sent!");
     } catch (error) {
-      console.error(error.message);
-      or;
       toast.error("Failed to send password reset email!");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleProfileUpdate = async (updatedName, updatedPhoto) => {
+    setLoading(true);
+    try {
+      if (auth.currentUser) {
+        await updateProfile(auth.currentUser, {
+          displayName: updatedName,
+          photoURL: updatedPhoto,
+        });
+
+        setName(updatedName);
+        setPhoto(updatedPhoto);
+        setUser({
+          ...auth.currentUser,
+          displayName: updatedName,
+          photoURL: updatedPhoto,
+        });
+
+        toast.success("Profile updated successfully!");
+      } else {
+        toast.error("User not authenticated!");
+      }
+    } catch (error) {
+      toast.error(`Failed to update profile: ${error.message}`);
     } finally {
       setLoading(false);
     }
@@ -103,41 +130,21 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      setName(currentUser?.displayName || null);
+      setPhoto(currentUser?.photoURL || null);
       setLoading(false);
-      setFirstLogin(false);
-      if (!currentUser) {
-      }
     });
 
     return () => unsubscribe();
   }, []);
 
-  const handleProfileUpdate = async () => {
-    try {
-      if (auth.currentUser) {
-        await updateProfile(auth.currentUser, {
-          displayName: name,
-          photoURL: photo,
-        });
-
-        toast.success("Profile updated successfully!");
-      } else {
-        toast.error("User not authenticated!");
-      }
-    } catch (error) {
-      console.error(error.message);
-      toast.error(`Failed to update profile: ${error.message}`);
-    }
-  };
-
   const authInfo = {
     user,
     loading,
     photo,
-    isFirstLogin,
+    name,
     setName,
     setPhoto,
-    setFirstLogin,
     signInWithGoogle,
     logOut,
     signUpWithEmail,
