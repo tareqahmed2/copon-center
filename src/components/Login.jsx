@@ -1,34 +1,36 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { FaGoogle } from "react-icons/fa";
+import { FaGoogle, FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 
 const Login = () => {
-  const { signInWithGoogle, logInWithEmail, resetPassword } =
-    useContext(AuthContext);
+  const { signInWithGoogle, logInWithEmail } = useContext(AuthContext);
   const emailRef = useRef();
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+
   const handleLogin = (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
     const email = form.get("email");
     const password = form.get("password");
-    console.log(email, password);
     logInWithEmail(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
       });
   };
+
   const handleForgetRoute = () => {
     const email = emailRef.current?.value || "";
     navigate("/forgetPassword", { state: { email } });
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -56,13 +58,21 @@ const Login = () => {
             <label className="label">
               <span className="label-text">Password</span>
             </label>
-            <input
-              type="password"
-              placeholder="password"
-              className="input input-bordered"
-              required
-              name="password"
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="password"
+                className="input w-full input-bordered pr-10"
+                required
+                name="password"
+              />
+              <span
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer"
+                onClick={togglePasswordVisibility}
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
             <label className="label">
               <a
                 onClick={handleForgetRoute}

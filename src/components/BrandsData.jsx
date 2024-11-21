@@ -40,11 +40,16 @@ const BrandsData = ({ brand }) => {
           <h3 className="text-lg font-bold">Coupons:</h3>
           <ul className="list-none">
             {coupons.map((coupon, index) => (
-              <li key={index} className="flex justify-between">
-                <span>
+              <li
+                key={index}
+                className="flex items-start gap-1 justify-between"
+              >
+                <span className="w-4/5">
                   {coupon.coupon_code} - {coupon.description}
                 </span>
-                <span className="text-xs">{coupon.expiry_date}</span>
+                <span className="text-xs w-2/5 my-1 bg-green-300 p-1 flex items-center justify-center rounded-full">
+                  {coupon.expiry_date}
+                </span>
               </li>
             ))}
           </ul>

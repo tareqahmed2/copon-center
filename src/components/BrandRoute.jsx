@@ -2,10 +2,12 @@ import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { FaStar } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const BrandRoute = () => {
   const [searchItem, setSearchItem] = useState("");
   const [filteredBrands, setFilteredBrands] = useState([]);
+  const [brands, setBrands] = useState([]);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -14,6 +16,7 @@ const BrandRoute = () => {
       try {
         const response = await fetch("/Brands.json");
         const data = await response.json();
+        setBrands(data);
         setFilteredBrands(data);
       } catch (error) {
         console.error("Error fetching brands data: ", error);
@@ -24,16 +27,24 @@ const BrandRoute = () => {
   }, []);
 
   useEffect(() => {
-    setFilteredBrands((prevBrands) =>
-      prevBrands.filter((brand) =>
-        brand.brand_name.toLowerCase().includes(searchItem.toLowerCase())
-      )
-    );
-  }, [searchItem]);
+    if (searchItem === "") {
+      setFilteredBrands(brands);
+    } else {
+      setFilteredBrands(
+        brands.filter((brand) =>
+          brand.brand_name.toLowerCase().includes(searchItem.toLowerCase())
+        )
+      );
+    }
+  }, [searchItem, brands]);
 
   const handleViewCoupons = (brandId, isSaleOn) => {
     if (!user) {
       navigate("/login");
+    }
+    if (!isSaleOn) {
+      toast.error("This copon isn't available right now !");
+      return;
     } else if (isSaleOn) {
       navigate(`/brandDetails/${brandId}`);
     } else {
@@ -43,7 +54,7 @@ const BrandRoute = () => {
 
   return (
     <div className="container w-11/12 mx-auto p-4">
-      <h1 className="text-4xl font-bold mb-4">All Brands</h1>
+      <h1 className="text-4xl font-bold text-blue-400 mb-4">All Brands</h1>
       <input
         type="text"
         placeholder="Search by brand name..."
@@ -70,7 +81,7 @@ const BrandRoute = () => {
               <h2 className="text-lg font-semibold mb-2">{brand.brand_name}</h2>
               <p className="text-gray-600 mb-4">{brand.description}</p>
             </div>
-            <div className="flex justify-between items-center mt-auto">
+            <div className="flex justify-between md:flex-col-reverse items-center mt-auto">
               <button
                 onClick={() => handleViewCoupons(brand._id, brand.isSaleOn)}
                 className="bg-blue-500 text-white py-2 px-4 rounded-lg"

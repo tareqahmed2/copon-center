@@ -155,26 +155,32 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{links}</ul>
+          <ul className="menu menu-horizontal px-0">{links}</ul>
         </div>
 
         <div className="navbar-end w-full">
           {user ? (
             <div className="flex items-center gap-4">
-              <h3 className="hidden md:block font-semibold text-accent text-sm">
-                Welcome, {updateName || user?.displayName || name || "User"}!
-              </h3>
-              <img
-                className="w-10 h-10 rounded-full"
-                src={
-                  updatePhoto ||
-                  user?.photoURL ||
-                  photo ||
-                  "https://via.placeholder.com/150"
-                }
-                alt="User"
-              />
-              <span className="text-xs hidden md:block"> {user?.email}</span>
+              <div className="flex flex-col justify-center items-start">
+                <img
+                  className="w-10 h-10 rounded-full"
+                  src={
+                    updatePhoto ||
+                    user?.photoURL ||
+                    photo ||
+                    "https://via.placeholder.com/150"
+                  }
+                  alt="User"
+                />
+                <span className="text-xs hidden md:block my-2">
+                  <h3 className="hidden md:block font-semibold text-accent text-[12px]">
+                    Welcome, {updateName || user?.displayName || name || "User"}
+                    !
+                  </h3>{" "}
+                  {user?.email}
+                </span>
+              </div>
+
               <button
                 onClick={handleLogOut}
                 className="btn btn-outline btn-accent flex items-center gap-1"
