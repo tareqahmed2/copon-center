@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const FeatureDetails = () => {
   const { id } = useParams();
@@ -37,7 +38,9 @@ const FeatureDetails = () => {
     discount,
     details: { description, features: featureList, stock, category },
   } = selectedCardData;
-
+  const hadleAddToCart = () => {
+    toast.warn("Function didn't implement yet!");
+  };
   return (
     <div className="container w-11/12 mx-auto px-4 py-8">
       <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden">
@@ -81,7 +84,10 @@ const FeatureDetails = () => {
             </div>
           </div>
           <div className="mt-6 flex justify-between items-center">
-            <button className="btn btn-primary px-6 py-2 text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 transition">
+            <button
+              onClick={hadleAddToCart}
+              className="btn btn-primary px-6 py-2 text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 transition"
+            >
               Add to Cart
             </button>
             <button
