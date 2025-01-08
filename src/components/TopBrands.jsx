@@ -7,7 +7,7 @@ import BrandsData from "./BrandsData";
 
 const TopBrands = () => {
   const { brands } = useContext(productContext);
-  console.log(brands);
+  // console.log(brands);
 
   return (
     <div>

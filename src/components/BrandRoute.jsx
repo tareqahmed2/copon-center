@@ -19,7 +19,7 @@ const BrandRoute = () => {
         setBrands(data);
         setFilteredBrands(data);
       } catch (error) {
-        console.error("Error fetching brands data: ", error);
+        // console.error("Error fetching brands data: ", error);
       }
     };
 
@@ -41,6 +41,7 @@ const BrandRoute = () => {
   const handleViewCoupons = (brandId, isSaleOn) => {
     if (!user) {
       navigate("/login");
+      return;
     }
     if (!isSaleOn) {
       toast.error("This copon isn't available right now !");

@@ -14,7 +14,7 @@ const FeatureDetails = () => {
       .then((data) => {
         setFeatures(data);
         setLoading(false);
-        console.log(data);
+        // console.log(data);
       })
       .catch((error) => {
         console.error("Error fetching the data:", error);

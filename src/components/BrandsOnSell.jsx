@@ -4,7 +4,7 @@ import BrandsData from "./BrandsData";
 
 const BrandsOnSell = () => {
   const { brands } = useContext(productContext);
-  console.log(brands);
+  // console.log(brands);
 
   const sellAvailable = brands.filter(
     (sellProduct) => sellProduct.isSaleOn === true
